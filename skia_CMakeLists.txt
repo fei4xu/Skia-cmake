@@ -1,0 +1,34 @@
+project(skia)
+cmake_minimum_required(VERSION 3.10.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include(CTest)
+enable_testing()
+
+set(is_fuchsia OFF)
+set(is_android OFF)
+set(is_mac OFF)
+set(is_ios OFF)
+set(is_linux OFF)
+
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+  set(is_linux ON)
+endif()
+
+########################################################################
+# gn/skia.gni
+option(is_official_build	"gn --args=is_official_build"	OFF)
+
+
+set(is_skia_standalone ON)
+set(is_skia_dev_build OFF)
+if(is_skia_standalone AND NOT is_official_build)
+  set(is_skia_dev_build ON)
+  message(STATUS "is_skia_dev_build is: " ${is_skia_dev_build})
+endif()
+
+########################################################################
+# BUILD.gn
+option(is_component_build "-DSKIA_DLL" ON)
