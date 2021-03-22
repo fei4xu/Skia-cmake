@@ -9,6 +9,15 @@ Skia as a submodule, so the lastest skia development can be tracked.
 ## How to use
 ```sh
 mv skia_CMakeLists.txt skia/CMakeLists.txt
+mv SkiaConfig.cmake skia/SkiaConfig.cmake
+mv skia_experimental_c-api-example_CMakeLists.txt skia/experimental/c-api-example/CMakeLists.txt 
+```
+during my development, I do before I commit my changes:
+```
+mv skia/CMakeLists.txt skia_CMakeLists.txt
+mv skia/SkiaConfig.cmake .
+mv skia/experimental/c-api-example/CMakeLists.txt skia_experimental_c-api-example_CMakeLists.txt
+rm skia/experimental/c-api-example/build/ -r
 ```
 Then you can
 ```sh

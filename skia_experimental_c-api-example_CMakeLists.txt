@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.0.0)
+project(c-api-example VERSION 0.1.0)
+
+include(CTest)
+enable_testing()
+
+add_executable(c-api-example skia-c-example.c)
+
+find_package(Skia)
+target_link_libraries(c-api-example ${SKIA_LIBRARIES})
+INCLUDE_DIRECTORIES(${SKIA_INCLUDE_DIR})
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
