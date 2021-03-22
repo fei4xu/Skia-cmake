@@ -553,6 +553,6 @@ endif()
 # install
 install(TARGETS skia LIBRARY DESTINATION lib)               #/usr/local/lib/libskia.so
 install(FILES SkiaConfig.cmake DESTINATION share/Skia)      #/usr/local/share/Skia/SkiaConfig.cmake
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION include/skia)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION include/Skia)
 
 
